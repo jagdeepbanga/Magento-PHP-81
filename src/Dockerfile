@@ -20,7 +20,8 @@ RUN apt-get update \
     && echo "deb https://ppa.launchpadcontent.net/ondrej/php/ubuntu impish main" > /etc/apt/sources.list.d/ppa_ondrej_php.list \
     && apt-get update \
     && apt-get install -y php8.1-cli php8.1-dev \
-       php8.1-sqlite3 php8.1-gd php8.1-curl \
+       php8.1-pgsql php8.1-sqlite3 php8.1-gd \
+       php8.1-curl \
        php8.1-imap php8.1-mysql php8.1-mbstring \
        php8.1-ctype php8.1-dom php8.1-fileinfo php8.1-hash \
        php8.1-iconv php8.1-json php8.1-libxml php8.1-openssl \
@@ -40,6 +41,7 @@ RUN apt-get update \
     && apt-get update \
     && apt-get install -y yarn \
     && apt-get install -y mysql-client \
+    && apt-get install -y postgresql-client \
     && apt-get -y autoremove \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
